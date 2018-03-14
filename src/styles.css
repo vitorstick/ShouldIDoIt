@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~https://fonts.googleapis.com/css?family=Pangolin';
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+ 
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+span.title{
+    font-family: 'Pangolin', cursive;
+}
+
+.app-input-section>md-input {
+    width: 100%;
+}
+
+/*OVERRIDES*/
+md-toolbar-row {
+  justify-content: space-between;
+}
+md-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+.md-sidenav-content {
+    min-height: 500px;
+}
+
+.app-icon-button {
+    background-color: transparent;
+    border: 0px;
+    color: white;
+}
+/*end of OVERRIDES*/
+.done {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+.dilema {
+  min-height: 85px;
+}
+
+.dilema .dilema-title {
+  width: 100%;
+}
+
+.dilema button {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}

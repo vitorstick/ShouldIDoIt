@@ -1,0 +1,83 @@
+<md-sidenav-layout [class.m2app-dark]="isDarkTheme">
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    <span (click)="newDilema()">New Dilema</span>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+
+    <span class="title">"SHOULD I DO IT?" APP</span>
+
+    <span class="app-toolbar-filler"></span>
+
+    <!--<button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>-->
+
+  </md-toolbar>
+
+
+  <div class="app-content">
+
+    <md-menu x-position="before" #menu="mdMenu">
+      <button md-menu-item>Option 1</button>
+      <button md-menu-item>Option 2</button>
+    </md-menu>
+
+
+    <md-card class="app-input-section">
+      <md-input placeholder="Your name" [(ngModel)]="username"></md-input>
+    </md-card>
+
+    <template [ngIf]="username.length>2 && result == 0">
+      <md-card class="dilema">
+        <md-input class="dilema-title" placeholder="What is your dilema" [(ngModel)]="userquestion"></md-input>
+        <button md-raised-button color="primary" (click)="decide()">Decide for me</button>
+      </md-card>
+    </template>
+
+    <template [ngIf]="result>0">
+      <md-card class="result-app" *ngIf="result>50">
+        <div>
+          <h2>{{userquestion}}<span>?</span></h2>
+        </div>
+        <div>
+          <span> Yes you should {{username}}, what are you waiting for? </span>
+        </div>
+      </md-card>
+      <md-card class="result-app" *ngIf="result<50">
+        <div>
+          <h2>{{userquestion}}<span>?</span></h2>
+        </div>
+        <div>
+          <span> Hell No {{username}}, why would you do that? </span>
+        </div>
+      </md-card>
+    </template>
+    
+    <!--<md-card>
+      <label>
+        Wait, we are getting your destiny
+        <md-progress-bar
+            class="app-progress"
+            mode="indeterminate"
+            aria-label="Wait, we are getting your destiny"></md-progress-bar>
+      </label>
+    </md-card>
+
+
+    <md-card>
+      <button md-raised-button color="primary">The</button>
+      <button md-raised-button color="accent">Buttons</button>
+    </md-card>-->
+
+    <span class="done">
+    <button md-fab>
+      <md-icon>check circle</md-icon>
+    </button>
+  </span>
+  </div>
+</md-sidenav-layout>
